@@ -1,5 +1,4 @@
-# HAD-FL — Hierarchical Anomaly Detection for Federated Learning
-
+# HAD-FL: Hierarchical Adaptive Aggregation for Defending Federated Learning Against Novel Heterogeneous Model Poisoning Attacks
 A Byzantine-robust federated learning framework that defends against
 poisoning attacks using hierarchical anomaly detection, HDBSCAN clustering,
 and adaptive temporal reputation scoring.
