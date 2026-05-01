@@ -1,0 +1,36 @@
+# ─────────────────────────────────────────────
+#  HAD-FL  |  Fashion-MNIST Experiment Config
+# ─────────────────────────────────────────────
+
+dataset: FMNIST
+model: FourLayerCNN
+num_classes: 10
+
+# Federated Learning Setup
+num_clients: 100
+clients_per_round: 10
+batch_size: 64
+local_epochs: 2
+global_rounds: 150
+non_iid_alpha: 0.5
+learning_rate: 0.01
+lr_decay_step: 50
+lr_decay_rate: 0.5
+
+# Attack Settings
+malicious_ratios: [10, 20, 30, 40]
+attack_types: ["ISA", "MinMax", "LIE", "TRIM"]
+
+# Aggregation Methods
+aggregation_methods:
+  - Mean
+  - Median
+  - Trimmed-Mean
+  - Krum
+  - Multi-Krum
+  - Bulyan
+  - HADFL
+
+# Results
+results_dir: ../results/fmnist
+seed: 42

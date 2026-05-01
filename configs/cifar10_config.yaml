@@ -1,0 +1,68 @@
+# ─────────────────────────────────────────────
+#  HAD-FL  |  CIFAR-10 Experiment Configuration
+# ─────────────────────────────────────────────
+
+dataset: CIFAR-10
+model: MobileNetV2
+num_classes: 10
+
+# Federated Learning Setup
+num_clients: 100
+clients_per_round: 10
+batch_size: 64
+local_epochs: 2
+global_rounds: 150
+non_iid_alpha: 0.5
+learning_rate: 0.01
+lr_decay_step: 50
+lr_decay_rate: 0.5
+
+# Attack Settings
+malicious_ratios: [10, 20, 30, 40]
+attack_types: ["ISA", "MinMax", "LIE", "TRIM"]
+
+# ISA Attack Parameters
+isa_rho: 0.80
+isa_eps_min: 0.80
+isa_eps_max: 1.80
+isa_tau: 10.0
+isa_delta: 0.03
+isa_kappa: 3.0
+isa_beta: 0.0
+isa_std_cap: 2.0
+isa_min_shift: 0.005
+
+# MinMax Attack
+minmax_scale: 4.0
+
+# Trim Attack
+trim_ratio: 0.10
+
+# Aggregation Methods
+aggregation_methods:
+  - Mean
+  - Median
+  - Trimmed-Mean
+  - Krum
+  - Multi-Krum
+  - Bulyan
+  - HADFL
+
+# HAD-FL Hyperparameters
+hadfl_clip_norm: 1.0
+hadfl_hdbscan_min_cluster: 3
+hadfl_hdbscan_min_samples: 2
+hadfl_warmup_rounds: 5
+hadfl_mad_tau: 2.5
+hadfl_max_drop_ratio: 0.30
+hadfl_pca_components: 3
+hadfl_geom_reject_pct: 0.90
+hadfl_alpha_memory: 0.80
+hadfl_lambda_geom: 0.65
+hadfl_lambda_mad: 0.35
+hadfl_rep_floor: 1.0e-8
+hadfl_hard_reject_zscore: 0.3
+
+# Results
+results_dir: ../results/cifar10
+seed: 42
